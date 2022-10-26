@@ -1,0 +1,16 @@
+<section class="header">
+    <h1 class="pl-3">My Dashboard</h1>
+</section>
+{{#each posts as |post|}}
+    <article class="post">
+        <section class="post-header">
+        {{!-- link to post id --}}
+            <a href="/edit/{{post.id}}"><h1 class="title">{{post.title}}</h1></a>
+            <h4>Posted on {{ format_date post.date_created }}</h4>
+        </section>
+    </article>
+{{/each}}
+<section class="create-btn">
+    {{!-- option to create new post --}}
+    <a href="/new"><h1>+ New post</h1></a>
+</section>

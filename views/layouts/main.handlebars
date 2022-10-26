@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Time for a Tech Blog</title>
+</head>
+
+<body>
+    <div class="red"></div>
+    <nav>
+        <ul class="nav">
+            <li class="nav-item">
+                <a class="nav-link active" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/dashboard">Dashboard</a>
+            </li>
+            {{!-- check if user if logged in for which option to present --}}
+            {{#if logged_in}}
+            <li class="nav-item">
+                <a class="nav-link" href="/login" id="logout">Logout</a>
+            </li>
+            {{else}}
+            <li class="nav-item">
+                <a class="nav-link" href="/login">Login</a>
+            </li>
+            {{/if}}
+        </ul>
+    </nav>
+    {{!-- render handlebars --}}
+    <main class="main">
+        {{{ body }}}
+    </main>
+    {{!-- run log out js script only if logged in --}}
+    {{#if logged_in}}
+    {{!-- log out js --}}
+    <script src="/js/logout.js"></script>
+    {{!-- code for logging user outr after x period of idle time --}}
+    <script type="text/javascript">
+        const inactivityTime = function () {
+            let time;
+            window.onload = resetTimer;
+            document.onmousemove = resetTimer;
+            document.onkeydown = resetTimer;
+            function logout() {
+                window.location.href = '/logout'
+            }
+            function resetTimer() {
+                clearTimeout(time);
+                time = setTimeout(logout, 300000)
+                // 5 minutes
+            }
+        };
+        window.onload = function () {
+            inactivityTime();
+        }
+    </script>
+    {{/if}}
+</body>
+
+</html>

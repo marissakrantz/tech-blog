@@ -1,0 +1,21 @@
+<section class="header">
+    <h1 class="pl-3">Time for a Tech Blog</h1>
+</section>
+<section class="welcome">
+    <h1>Welcome to the Tech Blog!</h1>
+    <h3>Home for all tech related topics</h3>
+</section>
+<section>
+    {{!-- load each post --}}
+    {{#each posts as |post|}}
+        <article class="post">
+            <section class="post-header">
+            {{!-- link to post id --}}
+                <a href="/posts/{{post.id}}"><h1 class="title">{{post.title}}</h1></a>
+                <h4>Posted by {{ post.user.username }} on {{ format_date post.date_created }}</h4>
+            </section>
+            {{!-- content of post --}}
+            <p class="content"> {{post.content}}</p>
+        </article>
+    {{/each}}
+</section>

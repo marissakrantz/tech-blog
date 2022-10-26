@@ -1,0 +1,31 @@
+<section class="header">
+    <h1>My Dashboard</h1>
+</section>
+<article class="post">
+    <section class="post-header">
+        <h1 class="title">{{ post.title }}</h1>
+        <h4>Posted by {{ post.user.username }} on {{ format_date post.date_created }}</h4>
+    </section>
+    <p class="content"> {{ post.content }}</p>
+</article>
+{{!-- comments section under post --}}
+<section class="post">
+    <section class="post-header">
+        <h3 class="title">Comments</h3>
+    </section>
+    {{#each post.comments as |comment|}}
+    <article class="content">
+        <p>{{ comment.content }}</p>
+        <p>Posted by {{ comment.user.username }} on {{ format_date comment.date_created }}</p>
+    </article>
+    {{/each}}
+    <form class="form comment-form content">
+        <h4>Comment</h4>
+        <section class="mb-3">
+            <textarea name="content" cols="30" rows="10" id="comment-content" class="form-input"></textarea>
+        </section>
+        <button class="submit-btn btn" type="submit">comment</button>
+    </form>
+</section>
+
+<script src="/js/comment.js"></script>
