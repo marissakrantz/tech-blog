@@ -13,7 +13,7 @@ SO THAT I can publish articles, blog posts, and my thoughts and opinions
 ```
 
 ## Installation
-💾 This app has been deployed to Heroku, navigate to [Tech talk Time]() to utilise it.
+💾 This app has been deployed to Heroku, navigate to [Tech Talk Time]() to utilise it.
   
 ## Usage
 💻 Once you have landed on the home page, click login to log into your account. Subsequently you can navigate to the register page to create an account. Once successfully logged in the user can navigate to the dashboard where they can see all of their own blog posts as well as add another. The home page shows all blog posts that are available and once clicked on the user will be able to add a comment to that blog post and if it is their own they are presented with options to edit or delete the post.
